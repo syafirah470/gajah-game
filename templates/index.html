@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Strategi Gajah vs Manusia vs Semut</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">⚔️ Strategi <span class="highlight">Gajah</span> vs <span class="highlight">Manusia</span> vs <span class="highlight">Semut</span></h1>
+        <p>Setiap pemain memiliki 1 Gajah, 1 Manusia, 1 Semut. Pilih karakter AI untuk dieliminasi!</p>
+
+        <div class="section">
+            <h2>🎮 Karakter Anda</h2>
+            <div class="characters-container" id="player-characters">
+                <button class="character-btn" onclick="eliminasiKarakter('gajah')">Gajah 🐘</button>
+                <button class="character-btn" onclick="eliminasiKarakter('manusia')">Manusia 👤</button>
+                <button class="character-btn" onclick="eliminasiKarakter('semut')">Semut 🐜</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🤖 Karakter AI</h2>
+            <div class="characters-container" id="ai-characters">
+                <button class="character-btn" disabled>Gajah 🐘</button>
+                <button class="character-btn" disabled>Manusia 👤</button>
+                <button class="character-btn" disabled>Semut 🐜</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚔️ Pertarungan!</h2>
+            <div class="battle-participants">
+                <span id="final-player">❓</span>
+                <span class="vs-text">VS</span>
+                <span id="final-ai">❓</span>
+            </div>
+            <div id="hasil"></div>
+        </div>
+
+        <div class="rules-box">
+            <h3>📋 <span class="highlight">Aturan Permainan:</span></h3>
+            <p><strong>Fase 1 - Eliminasi Bergantian:</strong></p>
+            <ul>
+                <li>Setiap pemain memiliki 1 Gajah, 1 Manusia, dan 1 Semut</li>
+                <li>Anda memilih 1 karakter AI untuk dieliminasi</li>
+                <li>AI memilih 1 karakter Anda untuk dieliminasi</li>
+                <li>Proses berlanjut hingga masing-masing hanya memiliki 1 karakter</li>
+            </ul>
+            <p><strong>Fase 2 - Pertarungan Final:</strong></p>
+            <ul>
+                <li>🐘 Gajah mengalahkan 👤 Manusia</li>
+                <li>👤 Manusia mengalahkan 🐜 Semut</li>
+                <li>🐜 Semut mengalahkan 🐘 Gajah</li>
+                <li>Jika karakter sama = SERI!</li>
+            </ul>
+            <p><strong>Strategi:</strong><br>
+                Pilih eliminasi dengan bijak! Karakter yang Anda sisakan harus bisa mengalahkan karakter yang mungkin tersisa dari AI.
+            </p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
