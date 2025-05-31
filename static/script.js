@@ -86,38 +86,3 @@ function pilihKarakterAIberdasarReasoning() {
     return karakterAnda.includes(pilihanAI) ? pilihanAI : karakterAnda[Math.floor(Math.random() * karakterAnda.length)];
 }
 
-function tampilkanPertarungan(player, ai) {
-    finalPlayer.innerText = pilihanEmot[player] || "❓";
-    finalAI.innerText = pilihanEmot[ai] || "❓";
-
-    if (['gajah', 'manusia', 'semut'].includes(player) && ['gajah', 'manusia', 'semut'].includes(ai)) {
-        hasilDiv.innerHTML = `<h3>🔥 ${tentukanPemenang(player, ai).toUpperCase()}! 🔥</h3>`;
-    } else {
-        hasilDiv.innerHTML = `<h3>⏳ Menunggu karakter lainnya...</h3>`;
-    }
-}
-
-function tentukanPemenang(p, a) {
-    if (p === a) return "Seri";
-    if (
-        (p === 'gajah' && a === 'manusia') ||
-        (p === 'manusia' && a === 'semut') ||
-        (p === 'semut' && a === 'gajah')
-    ) {
-        return "Anda Menang";
-    }
-    return "AI Menang";
-}
-
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function updateUI() {
-    renderTombolAI();
-    renderTombolPlayer();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateUI();
-});
